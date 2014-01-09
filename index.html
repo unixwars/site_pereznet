@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Perezpeich v1.22 beta, revisión 152, 2ª rotonda a la izquierda tirando pa' Matalascañas</title>
+<meta name="language" content="es" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="design" content="http://unixwars.com" />
+<link rel="stylesheet" href="misc/style.css" type="text/css" />
+</head>
+<body>
+<div id="container">
+  <div id="content">
+      <map id="correo" name="correo">
+	   <area href="http://correo.pereznet.com" shape="rect" coords="244, 108, 281, 138" alt="Somos Perez!!" />
+      </map>
+      <img alt="Somos Perez!!" class="nb" src="misc/logo.jpg" width="489" height="219" usemap="#correo"/>
+	 <div class="status"></div>
+  </div>
+</div>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+  $.ajax({url: "misc/tags.txt"}).done(function($data) {
+    var tags = $data.split('\n');
+
+    function transition() {
+      tag = tags[Math.floor(Math.random() * tags.length)]
+      $(".status").fadeOut(function() {
+        $(this).text(tag).fadeIn();
+      });
+    };
+    transition();
+    setInterval(transition, 10000);
+  });
+  </script>
+</body>
+</html>
